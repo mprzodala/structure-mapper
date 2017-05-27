@@ -1,0 +1,44 @@
+{
+  "name": "structure-mapper",
+  "version": "1.0.0",
+  "description": "structure mapper give you posibility to map any object to another with diferent structure",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "webpack -p --config webpack.config.js"
+  },
+  "keywords": [
+    "structure",
+    "mapper",
+    "data",
+    "object",
+    "array"
+  ],
+  "author": "Mariusz Przodała",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-jest": "^18.0.0",
+    "babel-loader": "^6.2.10",
+    "babel-polyfill": "^6.20.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-es2017": "^6.22.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "jest": "^20.0.4",
+    "webpack": "^2.6.1"
+  },
+  "dependencies": {},
+  "jest": {
+    "verbose": true,
+    "coverageThreshold": {
+      "global": {
+        "branches": 50,
+        "functions": 50,
+        "lines": 50,
+        "statements": 50
+      }
+    },
+    "collectCoverage": true
+  }
+}
