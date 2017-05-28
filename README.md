@@ -1,9 +1,9 @@
 # structure-mapper
 
-<img src="https://img.shields.io/badge/build-passing-brightgreen.svg" />
-<img src="https://img.shields.io/badge/coverage-100%25-brightgreen.svg" />
-<img src="https://img.shields.io/badge/license-MIT-blue.svg" />
-<img src="https://img.shields.io/badge/npm-v1.0.0-blue.svg" />
+[![Build Status](https://travis-ci.org/mprzodala/structure-mapper.svg?branch=master)](https://travis-ci.org/mprzodala/structure-mapper)
+[![Coverage Status](https://coveralls.io/repos/github/mprzodala/structure-mapper/badge.svg?branch=master)](https://coveralls.io/github/mprzodala/structure-mapper?branch=master)
+[![npm](https://img.shields.io/npm/l/structure-mapper.svg)](https://npmjs.org/package/structure-mapper)
+[![npm](https://img.shields.io/npm/v/structure-mapper.svg)](https://npmjs.org/package/structure-mapper)
 
 structure mapper give you posibility to map any object to another with diferent structure
 

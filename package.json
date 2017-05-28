@@ -6,7 +6,9 @@
   "scripts": {
     "test": "jest",
     "build": "webpack -p --config webpack.config.js",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "coverage": "jest --coverage",
+    "coverage:report": "cat ./coverage/lcov.info | coveralls"
   },
   "keywords": [
     "structure",
@@ -26,6 +28,7 @@
     "babel-preset-es2017": "^6.22.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.22.0",
+    "coveralls": "^2.13.1",
     "jest": "^20.0.4",
     "webpack": "^2.6.1"
   },
@@ -34,10 +37,10 @@
     "verbose": true,
     "coverageThreshold": {
       "global": {
-        "branches": 50,
-        "functions": 50,
-        "lines": 50,
-        "statements": 50
+        "branches": 85,
+        "functions": 85,
+        "lines": 85,
+        "statements": 85
       }
     },
     "collectCoverage": true
