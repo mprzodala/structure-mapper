@@ -1,7 +1,7 @@
 {
   "name": "structure-mapper",
   "version": "1.0.0",
-  "description": "Structure mapper give you posibility to map any object to another with different structure.",
+  "description": "Structure mapper gives the posibility to map any object into another with different structure.",
   "main": "dist/main.js",
   "scripts": {
     "test": "jest",

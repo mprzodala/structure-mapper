@@ -5,7 +5,7 @@
 [![npm](https://img.shields.io/npm/l/structure-mapper.svg)](https://npmjs.org/package/structure-mapper)
 [![npm](https://img.shields.io/npm/v/structure-mapper.svg)](https://npmjs.org/package/structure-mapper)
 
-Structure mapper give you posibility to map any object into another with different structure.
+Structure mapper gives the posibility to map any object into another with different structure.
 
 ## Examples
 
