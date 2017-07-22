@@ -1,8 +1,8 @@
 {
   "name": "structure-mapper",
   "version": "1.0.0",
-  "description": "structure mapper give you posibility to map any object to another with diferent structure",
-  "main": "index.js",
+  "description": "Structure mapper give you posibility to map any object to another with different structure.",
+  "main": "dist/main.js",
   "scripts": {
     "test": "jest",
     "build": "webpack -p --config webpack.config.js",
@@ -17,6 +17,8 @@
     "object",
     "array"
   ],
+  "repository": "https://github.com/mprzodala/structure-mapper",
+  "homepage": "https://github.com/mprzodala/structure-mapper",
   "author": "Mariusz Przodała",
   "license": "MIT",
   "devDependencies": {
