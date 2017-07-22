@@ -5,87 +5,18 @@
 [![npm](https://img.shields.io/npm/l/structure-mapper.svg)](https://npmjs.org/package/structure-mapper)
 [![npm](https://img.shields.io/npm/v/structure-mapper.svg)](https://npmjs.org/package/structure-mapper)
 
-structure mapper give you posibility to map any object to another with diferent structure
+Structure mapper give you posibility to map any object into another with different structure.
 
-## EXAMPLE OF USE
+## Examples
 
 ```js
 import mapper from 'structure-mapper';
 
-const object = {
-    a: 'testA',
-    b: [
-        {
-            b1: 'testB1',
-            b2: 'testB2',
-            b3: {
-                b31: 'testB31',
-                b32: 'testB32'
-            },
-            b4: [
-                {
-                    b41: 'testB41',
-                    b42: 'testB42'
-                }
-            ]
-        }
-    ],
-    c: {
-        c1: 'testC1',
-        c2: 'testC2'
-    }
-};
+const src = { foo: 123 };
+const map = { foo: 'bar' };
+const result = { bar: 123 };
 
-const mapStructure = {
-    a: 'c',
-    b: 'd',
-    'b$array': {
-        b1: 'd1',
-        b2: 'd2',
-        'b3$object': {
-            b31: 'c2'
-        },
-        'b4$array': {
-            b41: 'bc'
-        }
-    },
-    c: 'f',
-    'c$object': {
-        c1: 'f1',
-        c2: 'f2'
-    }
-};
-
-const mappedObject = mapper(object, mapStructure)
-
+expect(mapper(src, map)).toEqual(result);
 ```
 
-##### mappedObject
-
-```js
-const expectedResults = {
-    c: 'testA',
-    d: [
-        {
-            d1: 'testB1',
-            d2: 'testB2',
-            b3: {
-                c2: 'testB31',
-                b32: 'testB32'
-            },
-            b4: [
-                {
-                    bc: 'testB41',
-                    b42: 'testB42'
-                }
-            ]
-        }
-    ],
-    f: {
-        f1: 'testC1',
-        f2: 'testC2'
-    }
-};
-```
-
-You can use inverse flag attribute to map structure in inverse mode.
+To see more complex examples, check out this project's [test suite](./src/index.test.js).
