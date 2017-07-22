@@ -5,6 +5,7 @@
   "main": "dist/main.js",
   "scripts": {
     "test": "jest",
+    "test:watch": "jest --watch",
     "build": "rm -r ./dist && webpack -p --config webpack.config.js",
     "prepublish": "npm run build",
     "coverage": "jest --coverage",
