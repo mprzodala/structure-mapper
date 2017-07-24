@@ -10,7 +10,15 @@ describe('StructureMapper', () => {
             expect(mapper(srcObject, mapConfig)).toEqual(mappedObj);
         });
 
-        it('should renamed nested object property', () => {
+        it('should rename single property by inversing map', () => {
+            const srcObject = { foo: 123 };
+            const mapConfig = { bar: 'foo' };
+            const mappedObj = { bar: 123 };
+
+            expect(mapper(srcObject, mapConfig, true)).toEqual(mappedObj);
+        });
+
+        it('should renamed object without changing its properties', () => {
             const srcObject = { foo: { bar: 123 } };
             const mapConfig = { foo: 'biz' };
             const mappedObj = { biz: { bar: 123 } };
@@ -22,6 +30,55 @@ describe('StructureMapper', () => {
             const srcObject = { bar: 123 };
             const mapConfig = { foo: 'biz' };
             const mappedObj = { bar: 123 };
+
+            expect(mapper(srcObject, mapConfig)).toEqual(mappedObj);
+        });
+
+        it('should map object properties', () => {
+            const srcObject = { foo: { a: 11, b: 22 } };
+            const mapConfig = { 'foo$object': { a: 'x', b: 'y' } };
+            const mappedObj = { foo: { x: 11, y: 22 } };
+
+            expect(mapper(srcObject, mapConfig)).toEqual(mappedObj);
+        });
+
+        it('should rename object and map its properties', () => {
+            const srcObject = { foo: { a: 11, b: 22 } };
+            const mapConfig = {
+                foo: 'bar',
+                'foo$object': { a: 'x', b: 'y' }
+            };
+            const mappedObj = { bar: { x: 11, y: 22 } };
+
+            expect(mapper(srcObject, mapConfig)).toEqual(mappedObj);
+        });
+
+        it('should map objects in array', () => {
+            const srcObject = {
+                foo: [
+                    {
+                        a: 11,
+                        b: 'bar',
+                        c: { desc: 'some object' },
+                    }
+                ],
+            };
+            const mapConfig = {
+                'foo$array': {
+                    a: 'x',
+                    b: 'y',
+                    c: 'z',
+                },
+            };
+            const mappedObj = {
+                foo: [
+                    {
+                        x: 11,
+                        y: 'bar',
+                        z: { desc: 'some object' },
+                    },
+                ],
+            };
 
             expect(mapper(srcObject, mapConfig)).toEqual(mappedObj);
         });
