@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
-    "build": "rm -r ./dist && webpack -p --config webpack.config.js",
+    "build": "rm -rf ./dist && webpack -p --config webpack.config.js",
     "prepublish": "npm run build",
     "coverage": "jest --coverage",
     "coverage:report": "cat ./coverage/lcov.info | coveralls"
