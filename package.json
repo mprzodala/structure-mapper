@@ -4,12 +4,14 @@
   "description": "Structure mapper gives the posibility to map any object into another with different structure.",
   "main": "dist/main.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest && npm run lint",
     "test:watch": "jest --watch",
     "build": "rm -rf ./dist && webpack -p --config webpack.config.js",
-    "prepublish": "npm run build",
+    "prepublish": "npm run test && npm run build",
     "coverage": "jest --coverage",
-    "coverage:report": "cat ./coverage/lcov.info | coveralls"
+    "coverage:report": "cat ./coverage/lcov.info | coveralls",
+    "lint": "eslint -c .eslintrc.json src/*.js",
+    "lint:fix": "eslint --fix -c .eslintrc.json src/*.js"
   },
   "keywords": [
     "structure",
@@ -24,6 +26,7 @@
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.21.0",
+    "babel-eslint": "^7.2.3",
     "babel-jest": "^18.0.0",
     "babel-loader": "^6.2.10",
     "babel-polyfill": "^6.20.0",
@@ -32,6 +35,11 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.22.0",
     "coveralls": "^2.13.1",
+    "eslint": "^4.5.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.3.0",
     "jest": "^20.0.4",
     "webpack": "^2.6.1"
   },

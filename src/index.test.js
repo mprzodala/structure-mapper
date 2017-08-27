@@ -36,7 +36,7 @@ describe('StructureMapper', () => {
 
         it('should map object properties', () => {
             const srcObject = { foo: { a: 11, b: 22 } };
-            const mapConfig = { 'foo$object': { a: 'x', b: 'y' } };
+            const mapConfig = { foo$object: { a: 'x', b: 'y' } };
             const mappedObj = { foo: { x: 11, y: 22 } };
 
             expect(mapper(srcObject, mapConfig)).toEqual(mappedObj);
@@ -46,7 +46,7 @@ describe('StructureMapper', () => {
             const srcObject = { foo: { a: 11, b: 22 } };
             const mapConfig = {
                 foo: 'bar',
-                'foo$object': { a: 'x', b: 'y' }
+                foo$object: { a: 'x', b: 'y' },
             };
             const mappedObj = { bar: { x: 11, y: 22 } };
 
@@ -60,11 +60,11 @@ describe('StructureMapper', () => {
                         a: 11,
                         b: 'bar',
                         c: { desc: 'some object' },
-                    }
+                    },
                 ],
             };
             const mapConfig = {
-                'foo$array': {
+                foo$array: {
                     a: 'x',
                     b: 'y',
                     c: 'z',
@@ -93,40 +93,40 @@ describe('StructureMapper', () => {
                     b2: 'testB2',
                     b3: {
                         b31: 'testB31',
-                        b32: 'testB32'
+                        b32: 'testB32',
                     },
                     b4: [
                         {
                             b41: 'testB41',
-                            b42: 'testB42'
-                        }
-                    ]
-                }
+                            b42: 'testB42',
+                        },
+                    ],
+                },
             ],
             c: {
                 c1: 'testC1',
-                c2: 'testC2'
-            }
+                c2: 'testC2',
+            },
         };
 
         const mapStructure = {
             a: 'c',
             b: 'd',
-            'b$array': {
+            b$array: {
                 b1: 'd1',
                 b2: 'd2',
-                'b3$object': {
-                    b31: 'c2'
+                b3$object: {
+                    b31: 'c2',
                 },
-                'b4$array': {
-                    b41: 'bc'
-                }
+                b4$array: {
+                    b41: 'bc',
+                },
             },
             c: 'f',
-            'c$object': {
+            c$object: {
                 c1: 'f1',
-                c2: 'f2'
-            }
+                c2: 'f2',
+            },
         };
 
         const mappingResult = {
@@ -137,20 +137,20 @@ describe('StructureMapper', () => {
                     d2: 'testB2',
                     b3: {
                         c2: 'testB31',
-                        b32: 'testB32'
+                        b32: 'testB32',
                     },
                     b4: [
                         {
                             bc: 'testB41',
-                            b42: 'testB42'
-                        }
-                    ]
-                }
+                            b42: 'testB42',
+                        },
+                    ],
+                },
             ],
             f: {
                 f1: 'testC1',
-                f2: 'testC2'
-            }
+                f2: 'testC2',
+            },
         };
 
         it('should map src data using map structure', () => {
