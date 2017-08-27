@@ -9,12 +9,66 @@ Structure mapper gives the posibility to map any object into another with differ
 
 ## Examples
 
+key name
 ```js
 import mapper from 'structure-mapper';
 
 const src = { foo: 123 };
 const map = { foo: 'bar' };
 const result = { bar: 123 };
+
+expect(mapper(src, map)).toEqual(result);
+```
+
+key name in object
+```js
+import mapper from 'structure-mapper';
+
+const src = {
+    foo: {
+        bar: 123
+    }
+};
+const map = {
+    foo$object: {
+        bar: 'foo'
+    }
+};
+const result = {
+    foo: {
+        foo: 123
+    }
+};
+
+expect(mapper(src, map)).toEqual(result);
+```
+
+key names in array of object
+```js
+import mapper from 'structure-mapper';
+
+const src = {
+    foo: [
+        {
+            foo: 123,
+            bar: 321
+        }
+    ]
+};
+const map = {
+    foo$array: {
+        foo: 'foo2'
+        bar: 'bar2'
+    }
+};
+const src = {
+    foo: [
+        {
+            foo2: 123,
+            bar2: 321
+        }
+    ]
+};
 
 expect(mapper(src, map)).toEqual(result);
 ```
