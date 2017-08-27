@@ -82,6 +82,62 @@ describe('StructureMapper', () => {
 
             expect(mapper(srcObject, mapConfig)).toEqual(mappedObj);
         });
+
+        it('should map path', () => {
+            const srcObject = {
+                foo: [
+                    {
+                        a: 11,
+                        b: 'bar',
+                        c: { desc: 'some object' },
+                    },
+                ],
+            };
+            const mapConfig = {
+                bar$path: 'foo.0.b',
+            };
+            const mappedObj = {
+                foo: [
+                    {
+                        a: 11,
+                        b: 'bar',
+                        c: { desc: 'some object' },
+                    },
+                ],
+                bar: 'bar',
+            };
+
+            expect(mapper(srcObject, mapConfig)).toEqual(mappedObj);
+        });
+
+        it('should map path in array of object', () => {
+            const srcObject = {
+                foo: [
+                    {
+                        a: 11,
+                        b: 'bar',
+                        c: { desc: 'some object' },
+                    },
+                ],
+            };
+            const mapConfig = {
+                foo$array: {
+                    description$path: 'c.desc',
+                },
+            };
+            const mappedObj = {
+                foo: [
+                    {
+                        a: 11,
+                        b: 'bar',
+                        c: { desc: 'some object' },
+                        description: 'some object',
+                    },
+                ],
+            };
+
+            expect(mapper(srcObject, mapConfig)).toEqual(mappedObj);
+        });
     });
 
     describe('complex examples', () => {
